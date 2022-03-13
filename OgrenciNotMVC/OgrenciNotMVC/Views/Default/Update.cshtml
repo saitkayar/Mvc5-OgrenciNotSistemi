@@ -1,0 +1,20 @@
+﻿@model OgrenciNotMVC.Models.EntityFramework.TblDersler
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Updatee", "Default", FormMethod.Post))
+{
+    <div class="form-group">
+
+        @Html.LabelFor(m => m.DersAd)
+        @Html.TextBoxFor(m => m.DersAd, new { @class = "form-control" })
+    </div>
+    @Html.HiddenFor(m => m.DersId)
+    <div>
+
+        <button class="btn btn-info">Update</button>
+    </div>
+}
+

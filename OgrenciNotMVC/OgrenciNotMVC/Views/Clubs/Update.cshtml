@@ -1,0 +1,20 @@
+﻿@model  OgrenciNotMVC.Models.EntityFramework.TblKulupler
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Updatee", "Clubs", FormMethod.Post))
+{
+    <div class="form-group">
+
+        @Html.LabelFor(m => m.KulupAd)
+        @Html.TextBoxFor(m => m.KulupAd, new { @class = "form-control" })
+    </div>
+    @Html.HiddenFor(m => m.KulupId)
+    <div >
+
+        <button class="btn btn-info">Update</button>
+    </div>
+}
+

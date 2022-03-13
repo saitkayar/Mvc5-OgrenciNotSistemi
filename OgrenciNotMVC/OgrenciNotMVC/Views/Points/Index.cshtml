@@ -1,0 +1,51 @@
+﻿@using OgrenciNotMVC.Models.EntityFramework
+@model  List<TblNotlar>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+  
+
+<table class="table table-bordered ">
+    <tr>
+        <th>Score ID   </th>
+        <th>Lesson ID  </th>
+        <th>Student ID  </th>
+        <th>Score 1 </th>
+        <th>Score 2 </th>
+        <th>Score 3 </th>
+        <th>Project Point </th>
+        <th>Avarage </th>
+        <th>Status</th>
+        <th>Actions    </th>
+
+    </tr>
+    <tbody>
+        @foreach (var cls in Model)
+        {
+
+
+    <tr>
+        <td>@cls.NotId</td>
+
+        <td>@cls.TblDersler.DersAd</td>
+        <td>@cls.TblOgrenciler.OgrAd</td>
+        <td>@cls.Sınav1</td>
+        <td>@cls.Sınav2</td>
+        <td>@cls.Sınav3</td>
+        <td>@cls.Proje</td>
+        <td>@Convert.ToDecimal((@cls.Sınav1 + @cls.Sınav2 + @cls.Sınav3 + @cls.Proje) / 4)</td>
+
+        <td>@cls.durum</td>
+        <td>
+            <a href="/Points/Delete/@cls.NotId" class="btn btn-danger">Delete</a>
+            <a href="/Points/Update/@cls.NotId" class="btn btn-primary">Update</a>
+        </td>
+    </tr>
+}
+
+    </tbody>
+
+</table>
+
+<a href="/Points/Newpoints" class="btn btn-success">Add new Exams</a>

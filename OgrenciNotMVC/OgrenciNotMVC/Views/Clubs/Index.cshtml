@@ -1,0 +1,34 @@
+﻿@using OgrenciNotMVC.Models.EntityFramework
+@model  List<TblKulupler>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>Club ID    </th>
+        <th>Club NAME    </th>
+        <th>Club QUOTA   </th>
+        <th>Actions   </th>
+    </tr>
+    <tbody>
+        @foreach (var cls in Model)
+        {
+        <tr>
+            <td>@cls.KulupId</td>
+
+            <td>@cls.KulupAd</td>
+            <td>@cls.KulupKontenjan</td>
+            <td>
+                <a href="/Clubs/Delete/@cls.KulupId" class="btn btn-danger">Delete</a>
+                <a href="/Clubs/Update/@cls.KulupId" class="btn btn-primary">Update</a>
+            </td>
+        </tr>
+        }
+
+    </tbody>
+
+</table>
+
+<a href="/Clubs/NewClub" class="btn btn-success">Add New Club</a>

@@ -1,0 +1,43 @@
+﻿@using OgrenciNotMVC.Models.EntityFramework
+@model  List<TblOgrenciler>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<table class="table table-bordered ">
+    <tr>
+        <th>Students ID   </th>
+        <th>Name   </th>
+        <th>Surname  </th>
+        <th>Gender </th>
+        <th>Club </th>
+        <th>Pıcture </th>
+        <th>Actions   </th>
+
+    </tr>
+    <tbody>
+        @foreach (var cls in Model)
+        {
+        <tr>
+            <td>@cls.OgrId</td>
+
+            <td>@cls.OgrAd</td>
+            <td>@cls.OgrSoyad</td>
+            <td>@cls.OgrCinsiyet</td>
+            <td>@cls.TblKulupler.KulupAd</td>
+            <td>@cls.OgrFoto</td>
+            <td>
+                <a href="/Students/Delete/@cls.OgrId" class="btn btn-danger">Delete</a>
+                <a href="/Students/Update/@cls.OgrId" class="btn btn-primary">Update</a>
+            </td>
+        </tr>
+        }
+
+    </tbody>
+
+</table>
+
+<a href="/Students/NewStudent" class="btn btn-success">Add New Student</a>
+
